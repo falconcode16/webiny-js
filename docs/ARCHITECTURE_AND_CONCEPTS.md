@@ -29,6 +29,7 @@ The main tool used to run and manage our monorepo is [yarn](https://yarnpkg.com/
 We let `yarn` manage the workspaces and we use `lerna` to publish packages and run commands across workspaces. In `monorepo` lingo, a `workspace` is a single package.
 
 > IMPORTANT: It's VERY important that you understand how `yarn` links workspaces before moving on with this document, so make sure you read this article: https://classic.yarnpkg.com/en/docs/workspaces/.
+> Webiny blog: https://dev.to/falconcode16/webiny-the-best-serverless-cms-2628 
 
 #### Custom package linking
 
