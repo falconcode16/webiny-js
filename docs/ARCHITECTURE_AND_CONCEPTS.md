@@ -1,15 +1,14 @@
 # Architecture and Concepts
 
-Webiny is a development platform that utilises the latest and most popular tools to build serverless applications and APIs.
-Although the existing tools (like React, GraphQL, Typescript, etc.) are mature enough to be used in standalone production-ready projects, when it comes to building an open-source platform, which needs to support variety of use-cases, missing links begin to appear and developer's workflow is slowly but surely getting more and more complicated.
+Webiny is a development platform that utilizes the latest and most popular tools to build serverless applications and APIs. Although the existing tools (like React, GraphQL, Typescript, etc.) are mature enough to be used in standalone production-ready projects, when it comes to building an open-source platform that needs to support a variety of use-cases, missing links begin to appear, and developer's workflow is slowly but surely getting more and more complicated.
 
-The following chapters are breaking Webiny Framework in smaller chunks and explain how all the existing concepts and tools are connected together to provide a solid development experience.
+The following chapters break the Webiny Framework into smaller chunks and explain how all the existing concepts and tools are connected together to provide a solid development experience.
 
 ## Monorepo
 
-A `monorepo` means that one repository contains multiple packages. This project organization is widely adopted by many major open-source projects like babel, angular, react, and many, many others. It comes with some great benefits, but also with some downsides. With some custom tools, it proved to be the right way to go for Webiny.
+A `monorepo` means that one repository contains multiple packages. This project organization is widely adopted by many major open-source projects like Babel, Angular, React, and many, many others. It comes with some great benefits, but also some downsides. With some custom tools, it proved to be the right way to go for Webiny.
 
-So far, Webiny consists of several dozens of packages. Managing each package in its own repository would be impossible, because often changes in one package require changes in one or more other packages.
+So far, Webiny consists of several dozens of packages. Managing each package in its own repository would be impossible because often changes in one package require changes in one or more other packages.
 
 ### Packages
 
@@ -46,7 +45,7 @@ So how do we solve this?
 Each package written with TS has a `build` script defined in its `package.json`. The script will transpile the code from `src` using `babel` and run `tsc` compiler to generate type declarations (`*.d.ts` files) and check that your types are in order. The output folder of the build script is `dist`. This folder is important.
 
 Remember how `yarn` links workspaces? Can you already see the problem? Let's go step by step to make this very, very clear:
-So, you ran `yarn` in your monorepo, it did its magic and linked your packages. Then you built your TS packages to turn them into usable JS packages, by doing `yarn webiny ws run build` (this runs the `build` command on all your workspaces taking inter-package dependencies into consideration).
+So, you ran `yarn` in your monorepo, it did its magic and linked your packages. Then you build your TS packages to turn them into usable JS packages by doing `yarn webiny ws run build` (this runs the `build` command on all your workspaces, taking inter-package dependencies into consideration).
 
 Now you want to import one of your packages. Here's a sample code:
 
